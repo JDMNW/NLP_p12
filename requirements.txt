@@ -1,8 +1,7 @@
-streamlit
-scikit-learn
-pandas
-joblib
-numpy
+pip>=25.3
+setuptools>=65.0.0
+wheel
+numpy==1.26.4
 spacy==3.7.2
-
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+blis==0.7.9
+streamlit

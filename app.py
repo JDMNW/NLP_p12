@@ -5,17 +5,11 @@ import pandas as pd
 import spacy
 import feedparser
 
-# -------------------------------------------------
-# PAGE CONFIG
-# -------------------------------------------------
 st.set_page_config(
     page_title="ReviewRadar | Live News Monitor",
     layout="wide"
 )
 
-# -------------------------------------------------
-# LOAD MODELS
-# -------------------------------------------------
 @st.cache_resource
 def load_resources():
     model = joblib.load("sentiment_model.pkl")
@@ -24,9 +18,7 @@ def load_resources():
 
 model, nlp = load_resources()
 
-# -------------------------------------------------
-# GOOGLE NEWS RSS FETCHER
-# -------------------------------------------------
+
 def fetch_news(query="technology", max_items=5):
     query = query.replace(" ", "+")
     url = (
@@ -43,9 +35,7 @@ def fetch_news(query="technology", max_items=5):
 
     return articles
 
-# -------------------------------------------------
-# UI
-# -------------------------------------------------
+
 st.title("Real-Time Sentiment & NER Dashboard (Google News RSS)")
 
 st.sidebar.header("Control Panel")
@@ -54,9 +44,6 @@ app_mode = st.sidebar.radio(
     ["Manual Analysis", "Live News Stream"]
 )
 
-# -------------------------------------------------
-# MODE 1: MANUAL ANALYSIS
-# -------------------------------------------------
 if app_mode == "Manual Analysis":
     st.subheader("Manual Text Analysis")
 
@@ -90,9 +77,6 @@ if app_mode == "Manual Analysis":
                 else:
                     st.info("No named entities detected.")
 
-# -------------------------------------------------
-# MODE 2: LIVE GOOGLE NEWS STREAM
-# -------------------------------------------------
 else:
     st.subheader("Live Google News Stream")
 
@@ -141,9 +125,7 @@ else:
                     ignore_index=True
                 )
 
-            # -------------------------------
-            # FIXED TABLE DISPLAY
-            # -------------------------------
+        
             display_df = st.session_state.data_log.head(20)
 
             styled_df = display_df.style.set_properties(**{
@@ -172,10 +154,6 @@ else:
 
             time.sleep(refresh_rate)
 
-# -------------------------------------------------
-# DISCLAIMER
-# -------------------------------------------------
-st.caption(
-    "This application analyzes publicly available Google News RSS content. "
-    "Data is processed temporarily for research and demonstration purposes only."
-)
+
+
+

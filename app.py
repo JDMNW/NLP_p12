@@ -6,7 +6,7 @@ import spacy
 import feedparser
 
 st.set_page_config(
-    page_title="ReviewRadar | Live News Monitor",
+    page_title="NLP Project",
     layout="wide"
 )
 
@@ -153,6 +153,7 @@ else:
                 st.metric("Total Articles Processed", total)
 
             time.sleep(refresh_rate)
+
 
 
 

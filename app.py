@@ -36,7 +36,7 @@ def fetch_news(query="technology", max_items=5):
     return articles
 
 
-st.title("Real-Time Sentiment & NER Dashboard (Google News RSS)")
+st.title("Real-Time Sentiment Analysis")
 
 st.sidebar.header("Control Panel")
 app_mode = st.sidebar.radio(
@@ -153,6 +153,7 @@ else:
                 st.metric("Total Articles Processed", total)
 
             time.sleep(refresh_rate)
+
 
 
 
